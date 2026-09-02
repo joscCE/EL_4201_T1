@@ -71,16 +71,16 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3077, 988]
-    ZoomFactor    1.77778
-    SliderPosition [222, 136]
+    Location      [1920, 216; 3027, 988]
+    ZoomFactor    1.33333
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
       Type          DCVoltageSource
       Name          "V_dc"
       Show          on
-      Position      [135, 365]
+      Position      [155, 560]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -94,7 +94,7 @@ Plecs {
       Type          Capacitor
       Name          "C1"
       Show          on
-      Position      [495, 355]
+      Position      [515, 550]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -113,7 +113,7 @@ Plecs {
       Type          Resistor
       Name          "R1"
       Show          on
-      Position      [575, 355]
+      Position      [595, 550]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -127,7 +127,7 @@ Plecs {
       Type          Inductor
       Name          "L1"
       Show          on
-      Position      [400, 310]
+      Position      [420, 505]
       Direction     left
       Flipped       off
       LabelPosition north
@@ -146,7 +146,7 @@ Plecs {
       Type          Diode
       Name          "D1"
       Show          on
-      Position      [335, 355]
+      Position      [355, 550]
       Direction     down
       Flipped       off
       LabelPosition east
@@ -195,7 +195,7 @@ Plecs {
       Type          MosfetWithDiode
       Name          "FETD"
       Show          on
-      Position      [290, 310]
+      Position      [310, 505]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -234,7 +234,7 @@ Plecs {
       Type          PulseGenerator
       Name          "Pulse\nGenerator"
       Show          on
-      Position      [210, 220]
+      Position      [230, 415]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -273,7 +273,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm1"
       Show          on
-      Position      [635, 375]
+      Position      [655, 570]
       Direction     up
       Flipped       off
       LabelPosition west
@@ -282,7 +282,7 @@ Plecs {
       Type          Ammeter
       Name          "Am1"
       Show          on
-      Position      [210, 310]
+      Position      [230, 505]
       Direction     right
       Flipped       on
       LabelPosition north
@@ -291,7 +291,7 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [750, 380]
+      Position      [770, 575]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -367,35 +367,24 @@ Plecs {
       }
     }
     Component {
-      Type          ThermalPackageImpedance
-      Name          "Thermal Package\nImpedance"
+      Type          ConstantHeatFlow
+      Name          "Qconst"
       Show          on
-      Position      [310, 365]
+      Position      [180, 210]
       Direction     down
       Flipped       on
-      LabelPosition west
-      Frame         [-62, -72; 62, 72]
+      LabelPosition east
       Parameter {
-        Variable      "thermal"
-        Value         ""
+        Variable      "q"
+        Value         "1"
         Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         ""
-        Show          off
-      }
-      Terminal {
-        Type          HeatPort
-        Position      [-55, -77]
-        Direction     up
       }
     }
     Component {
       Type          ThermalResistor
-      Name          "Rth"
+      Name          "R_jp"
       Show          on
-      Position      [410, 220]
+      Position      [310, 170]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -406,10 +395,95 @@ Plecs {
       }
     }
     Component {
+      Type          ThermalResistor
+      Name          "R_pd"
+      Show          on
+      Position      [410, 170]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "R_da"
+      Show          on
+      Position      [500, 170]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "C_jp"
+      Show          on
+      Position      [310, 230]
+      Direction     left
+      Flipped       on
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "C_pd"
+      Show          on
+      Position      [410, 230]
+      Direction     left
+      Flipped       on
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "C_da"
+      Show          on
+      Position      [500, 230]
+      Direction     left
+      Flipped       on
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
       Type          ConstantTemperatureGnd
       Name          "TconstG"
       Show          on
-      Position      [495, 245]
+      Position      [620, 225]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -419,15 +493,24 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          ThermalGround
+      Name          "Ground"
+      Show          on
+      Position      [180, 275]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
     Connection {
       Type          Wire
       SrcComponent  "C1"
       SrcTerminal   2
-      Points        [495, 425]
+      Points        [515, 620]
       Branch {
-        Points        [335, 425]
+        Points        [355, 620]
         Branch {
-          Points        [135, 425]
+          Points        [155, 620]
           DstComponent  "V_dc"
           DstTerminal   2
         }
@@ -437,13 +520,13 @@ Plecs {
         }
       }
       Branch {
-        Points        [575, 425]
+        Points        [595, 620]
         Branch {
           DstComponent  "R1"
           DstTerminal   2
         }
         Branch {
-          Points        [635, 425]
+          Points        [655, 620]
           DstComponent  "Vm1"
           DstTerminal   2
         }
@@ -453,19 +536,19 @@ Plecs {
       Type          Wire
       SrcComponent  "L1"
       SrcTerminal   2
-      Points        [495, 310]
+      Points        [515, 505]
       Branch {
         DstComponent  "C1"
         DstTerminal   1
       }
       Branch {
-        Points        [575, 310]
+        Points        [595, 505]
         Branch {
           DstComponent  "R1"
           DstTerminal   1
         }
         Branch {
-          Points        [635, 310]
+          Points        [655, 505]
           DstComponent  "Vm1"
           DstTerminal   1
         }
@@ -475,7 +558,7 @@ Plecs {
       Type          Wire
       SrcComponent  "FETD"
       SrcTerminal   2
-      Points        [335, 310]
+      Points        [355, 505]
       Branch {
         DstComponent  "L1"
         DstTerminal   1
@@ -489,7 +572,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Pulse\nGenerator"
       SrcTerminal   1
-      Points        [290, 220]
+      Points        [310, 415]
       DstComponent  "FETD"
       DstTerminal   3
     }
@@ -497,7 +580,7 @@ Plecs {
       Type          Wire
       SrcComponent  "V_dc"
       SrcTerminal   1
-      Points        [135, 310]
+      Points        [155, 505]
       DstComponent  "Am1"
       DstTerminal   1
     }
@@ -519,25 +602,93 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [210, 500; 705, 500; 705, 385]
+      Points        [230, 695; 725, 695; 725, 580]
       DstComponent  "Scope"
       DstTerminal   2
     }
     Connection {
       Type          HeatPipe
-      SrcComponent  "TconstG"
+      SrcComponent  "Qconst"
       SrcTerminal   1
-      Points        [495, 220]
-      DstComponent  "Rth"
-      DstTerminal   2
+      DstComponent  "Ground"
+      DstTerminal   1
     }
     Connection {
       Type          HeatPipe
-      SrcComponent  "Rth"
-      SrcTerminal   1
-      Points        [365, 220]
-      DstComponent  "Thermal Package\nImpedance"
-      DstTerminal   1
+      SrcComponent  "Qconst"
+      SrcTerminal   2
+      Points        [180, 170; 270, 170]
+      Branch {
+        DstComponent  "R_jp"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [270, 230]
+        DstComponent  "C_jp"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "R_jp"
+      SrcTerminal   2
+      Points        [345, 170]
+      Branch {
+        Points        [370, 170]
+        Branch {
+          DstComponent  "R_pd"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [370, 230]
+          DstComponent  "C_pd"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        Points        [345, 230]
+        DstComponent  "C_jp"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "R_pd"
+      SrcTerminal   2
+      Points        [445, 170]
+      Branch {
+        Points        [465, 170]
+        Branch {
+          DstComponent  "R_da"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [465, 230]
+          DstComponent  "C_da"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        Points        [445, 230]
+        DstComponent  "C_pd"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "R_da"
+      SrcTerminal   2
+      Points        [540, 170]
+      Branch {
+        Points        [620, 170]
+        DstComponent  "TconstG"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [540, 230]
+        DstComponent  "C_da"
+        DstTerminal   1
+      }
     }
   }
 }
