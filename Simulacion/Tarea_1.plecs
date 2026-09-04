@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 24; 1536, 774]
+    Location      [0, 0; 760, 740]
     ZoomFactor    1.71498
-    SliderPosition [0, 0]
+    SliderPosition [27, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -350,7 +350,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         ""
+        Value         "file:\nIRFP4868PBF-ND"
         Show          off
       }
       Parameter {
