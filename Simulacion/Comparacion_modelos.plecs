@@ -1,0 +1,749 @@
+Plecs {
+  Name          "Comparacion_modelos"
+  Version       "5.0"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "1.0"
+  Timeout       ""
+  Solver        "auto"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "3"
+  DatatypeInheritanceConflictMsg "2"
+  ContSampleTimeConflictMsg "2"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  FixedPointDatatypeOverride "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  JacobianComputation "2"
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  MixedSignalSolverBypassOperatingPoint "1"
+  MixedSignalSolverInitialConditions "2"
+  MixedSignalSolverMaxNewtonIterations "25"
+  MixedSignalSolverNumThreads "-1"
+  OperatingPointMaxNewtonIterations "50"
+  OperatingPointRelativeNewtonTolerance "1e-3"
+  OperatingPointAbsoluteNewtonTolerance "1e-12"
+  OperatingPointNodalVoltageNewtonTolerance "1e-6"
+  SpiceTemperature "27"
+  SpiceGMin     "0"
+  SpiceInductorRPar "0"
+  SpiceInductorRSer "0"
+  SpiceCapacitorGPar "0"
+  SpiceCapacitorRSer "0"
+  NetlistParserDetails "2"
+  InvalidNetlistFunctionEvaluationMsg "1"
+  IncompatibleInitialConditionMsg "2"
+  Schematic {
+    Location      [1920, 216; 3069, 988]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          ConstantHeatFlow
+      Name          "Qconst"
+      Show          on
+      Position      [145, 350]
+      Direction     down
+      Flipped       on
+      LabelPosition east
+      Parameter {
+        Variable      "q"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth"
+      Show          on
+      Position      [305, 295]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "22.5502e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth1"
+      Show          on
+      Position      [395, 295]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "20.9536e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth2"
+      Show          on
+      Position      [490, 295]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "124.182e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          ConstantHeatFlow
+      Name          "Qconst1"
+      Show          on
+      Position      [145, 580]
+      Direction     down
+      Flipped       on
+      LabelPosition east
+      Parameter {
+        Variable      "q"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth"
+      Show          on
+      Position      [255, 340]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "Cth"
+        Value         "4.57836e-3"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth1"
+      Show          on
+      Position      [355, 340]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "Cth"
+        Value         "493.614e-6"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth2"
+      Show          on
+      Position      [450, 340]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "Cth"
+        Value         "28.8344e-3"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth3"
+      Show          on
+      Position      [305, 590]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "0.180492428986067521"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth4"
+      Show          on
+      Position      [395, 590]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "0.005534267691684129"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth5"
+      Show          on
+      Position      [490, 590]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "0.040015304991264024"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalGround
+      Name          "Ground"
+      Show          on
+      Position      [355, 400]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
+    Component {
+      Type          ThermalGround
+      Name          "Ground1"
+      Show          on
+      Position      [145, 615]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [975, 430]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -15; 15, 15]
+      Location      [0, 0; 1920, 988]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAeAAAAAdPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAANDAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":199,\"Labels\":["
+"\"Delta\"],\"VisualIdxs\":[3]}"
+      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth6"
+      Show          on
+      Position      [575, 295]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "141.932e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth6"
+      Show          on
+      Position      [530, 340]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "Cth"
+        Value         "150.385e-3"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth7"
+      Show          on
+      Position      [305, 530]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "5.20472480534949e-06"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth8"
+      Show          on
+      Position      [395, 530]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "0.0312931334640203"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth9"
+      Show          on
+      Position      [490, 530]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "0.0836443947170008"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalResistor
+      Name          "Rth10"
+      Show          on
+      Position      [590, 530]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Rth"
+        Value         "0.194651492347688"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalCapacitor
+      Name          "Cth7"
+      Show          on
+      Position      [590, 590]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "Cth"
+        Value         "0.13897406477607008"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux"
+      Show          off
+      Position      [815, 430]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-2, -45; 7, 45]
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          ThermalGround
+      Name          "Ground2"
+      Show          on
+      Position      [145, 380]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
+    Component {
+      Type          ThermalGround
+      Name          "Ground3"
+      Show          on
+      Position      [675, 380]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
+    Component {
+      Type          ThermalGround
+      Name          "Ground4"
+      Show          on
+      Position      [720, 590]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+    }
+    Component {
+      Type          HeatFlowMeter
+      Name          "Wm"
+      Show          on
+      Position      [630, 295]
+      Direction     left
+      Flipped       off
+      LabelPosition south
+    }
+    Component {
+      Type          HeatFlowMeter
+      Name          "Wm1"
+      Show          on
+      Position      [675, 530]
+      Direction     left
+      Flipped       off
+      LabelPosition south
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Qconst"
+      SrcTerminal   2
+      Points        [145, 295; 255, 295]
+      Branch {
+        DstComponent  "Rth"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Cth"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth"
+      SrcTerminal   2
+      Points        [355, 295]
+      Branch {
+        DstComponent  "Rth1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Cth1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth1"
+      SrcTerminal   2
+      Points        [450, 295]
+      Branch {
+        DstComponent  "Rth2"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Cth2"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Cth"
+      SrcTerminal   2
+      Points        [255, 375; 355, 375]
+      Branch {
+        DstComponent  "Ground"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Cth1"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [450, 375]
+        Branch {
+          DstComponent  "Cth2"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [530, 375]
+          DstComponent  "Cth6"
+          DstTerminal   2
+        }
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Qconst1"
+      SrcTerminal   2
+      Points        [145, 530; 265, 530]
+      Branch {
+        DstComponent  "Rth7"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [265, 590]
+        DstComponent  "Cth3"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth7"
+      SrcTerminal   2
+      Points        [345, 530]
+      Branch {
+        Points        [365, 530]
+        Branch {
+          DstComponent  "Rth8"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [365, 590]
+          DstComponent  "Cth4"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [345, 590]
+        DstComponent  "Cth3"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth8"
+      SrcTerminal   2
+      Points        [435, 530]
+      Branch {
+        Points        [455, 530]
+        Branch {
+          DstComponent  "Rth9"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [455, 590]
+          DstComponent  "Cth5"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [435, 590]
+        DstComponent  "Cth4"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth9"
+      SrcTerminal   2
+      Points        [530, 530]
+      Branch {
+        Points        [550, 530]
+        Branch {
+          DstComponent  "Rth10"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [550, 590]
+          DstComponent  "Cth7"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [530, 590]
+        DstComponent  "Cth5"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Qconst1"
+      SrcTerminal   1
+      DstComponent  "Ground1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Cth6"
+      SrcTerminal   1
+      Points        [530, 295]
+      Branch {
+        DstComponent  "Rth6"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Rth2"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth10"
+      SrcTerminal   2
+      Points        [625, 530]
+      Branch {
+        DstComponent  "Wm1"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [625, 590]
+        DstComponent  "Cth7"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux"
+      SrcTerminal   1
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Ground2"
+      SrcTerminal   1
+      DstComponent  "Qconst"
+      DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Rth6"
+      SrcTerminal   2
+      DstComponent  "Wm"
+      DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Wm"
+      SrcTerminal   2
+      Points        [675, 295]
+      DstComponent  "Ground3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "Wm1"
+      SrcTerminal   2
+      Points        [720, 530]
+      DstComponent  "Ground4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Wm1"
+      SrcTerminal   3
+      Points        [675, 470]
+      DstComponent  "Mux"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Wm"
+      SrcTerminal   3
+      Points        [630, 250; 805, 250; 805, 390]
+      DstComponent  "Mux"
+      DstTerminal   2
+    }
+  }
+}

@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 0; 760, 740]
+    Location      [1920, 216; 3105, 988]
     ZoomFactor    1.71498
-    SliderPosition [27, 0]
+    SliderPosition [3, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -257,11 +257,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [692, 92; 1151, 700]
+      Location      [0, 0; 1920, 988]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAB4AAABjPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAAYwAAABiAP///wAAAAMAAAJG////+vw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAcsAAAJBAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAFkA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAAYwAAABjAP///wAAAAMAAAJG////+vw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAB4AAAAO9AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -379,7 +379,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Rth"
-        Value         "1"
+        Value         "1.5"
         Show          off
       }
     }
@@ -393,7 +393,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Rth"
-        Value         "1"
+        Value         "519e-3"
         Show          off
       }
     }
@@ -407,7 +407,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "1"
+        Value         "0.0618"
         Show          off
       }
       Parameter {
@@ -426,7 +426,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "1"
+        Value         "125.23"
         Show          off
       }
       Parameter {
@@ -445,7 +445,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "T"
-        Value         "1"
+        Value         "25"
         Show          off
       }
     }
@@ -462,14 +462,15 @@ Plecs {
       Type          ThermalPackageImpedance
       Name          "tpi"
       Show          on
-      Position      [205, 295]
+      Position      [205, 290]
       Direction     down
       Flipped       on
       LabelPosition west
-      Frame         [-22, -32; 22, 32]
+      Frame         [-32, -37; 32, 37]
       Parameter {
         Variable      "thermal"
-        Value         ""
+        Value         "\n"
+"IRFP4868PBF-ND"
         Show          off
       }
       Parameter {
@@ -479,7 +480,7 @@ Plecs {
       }
       Terminal {
         Type          HeatPort
-        Position      [-15, -37]
+        Position      [-15, -42]
         Direction     up
       }
     }
@@ -601,7 +602,7 @@ Plecs {
       SrcTerminal   1
       Points        [370, 115]
       Branch {
-        Points        [235, 115; 235, 255; 220, 255]
+        Points        [235, 115; 235, 245; 220, 245]
         DstComponent  "tpi"
         DstTerminal   1
       }
