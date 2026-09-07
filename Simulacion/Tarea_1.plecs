@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3166, 988]
+    Location      [1920, 216; 3137, 988]
     ZoomFactor    1.71498
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -119,7 +119,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         ""
+        Value         "file:\nC3D06060F"
         Show          off
       }
       Parameter {
@@ -458,6 +458,36 @@ Plecs {
       Flipped       off
       LabelPosition east
     }
+    Component {
+      Type          HeatSink
+      Name          "Heat Sink"
+      Show          on
+      Position      [220, 300]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+      Frame         [-42, -42; 42, 42]
+      Parameter {
+        Variable      "Cth"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "Width"
+        Value         "1"
+        Show          off
+      }
+      Terminal {
+        Type          HeatPort
+        Position      [20, -47]
+        Direction     up
+      }
+    }
     Connection {
       Type          Wire
       SrcComponent  "C1"
@@ -586,14 +616,6 @@ Plecs {
       }
     }
     Connection {
-      Type          HeatPipe
-      SrcComponent  "R_cd"
-      SrcTerminal   1
-      Points        [370, 115]
-      DstComponent  "C_c"
-      DstTerminal   1
-    }
-    Connection {
       Type          Wire
       SrcComponent  "L1"
       SrcTerminal   1
@@ -605,6 +627,21 @@ Plecs {
       Branch {
         DstComponent  "D1"
         DstTerminal   2
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "R_cd"
+      SrcTerminal   1
+      Points        [370, 115]
+      Branch {
+        DstComponent  "C_c"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [240, 115]
+        DstComponent  "Heat Sink"
+        DstTerminal   1
       }
     }
     Annotation {
