@@ -5,7 +5,7 @@ Plecs {
   StartTime     "0.0"
   TimeSpan      "0.5"
   Timeout       ""
-  Solver        "dopri"
+  Solver        "radau"
   MaxStep       "1e-3"
   InitStep      "-1"
   FixedStep     "1e-3"
@@ -51,8 +51,8 @@ Plecs {
   ExternalModeSettings ""
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
-  ScriptsDialogGeometry ""
-  ScriptsDialogSplitterPos "0"
+  ScriptsDialogGeometry "[1920 216 524 816]"
+  ScriptsDialogSplitterPos "100"
   MixedSignalSolverBypassOperatingPoint "1"
   MixedSignalSolverInitialConditions "2"
   MixedSignalSolverMaxNewtonIterations "25"
@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3105, 988]
+    Location      [1920, 216; 3166, 988]
     ZoomFactor    1.71498
-    SliderPosition [3, 0]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -265,7 +265,7 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":184,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":186,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -458,59 +458,33 @@ Plecs {
       Flipped       off
       LabelPosition east
     }
-    Component {
-      Type          ThermalPackageImpedance
-      Name          "tpi"
-      Show          on
-      Position      [205, 290]
-      Direction     down
-      Flipped       on
-      LabelPosition west
-      Frame         [-32, -37; 32, 37]
-      Parameter {
-        Variable      "thermal"
-        Value         "\n"
-"IRFP4868PBF-ND"
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         ""
-        Show          off
-      }
-      Terminal {
-        Type          HeatPort
-        Position      [-15, -42]
-        Direction     up
-      }
-    }
     Connection {
       Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   1
-      Points        [245, 355]
+      SrcComponent  "C1"
+      SrcTerminal   2
+      Points        [330, 355]
       Branch {
-        Points        [105, 355]
-        DstComponent  "V_dc"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [330, 355]
+        Points        [245, 355]
         Branch {
-          DstComponent  "C1"
+          Points        [105, 355]
+          DstComponent  "V_dc"
           DstTerminal   2
         }
         Branch {
-          Points        [400, 355]
-          Branch {
-            DstComponent  "R1"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [430, 355]
-            DstComponent  "Vm1"
-            DstTerminal   2
-          }
+          DstComponent  "D1"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [400, 355]
+        Branch {
+          DstComponent  "R1"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [430, 355]
+          DstComponent  "Vm1"
+          DstTerminal   2
         }
       }
     }
@@ -534,20 +508,6 @@ Plecs {
           DstComponent  "Vm1"
           DstTerminal   1
         }
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L1"
-      SrcTerminal   1
-      Points        [245, 285]
-      Branch {
-        DstComponent  "D1"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "FETD"
-        DstTerminal   2
       }
     }
     Connection {
@@ -598,30 +558,15 @@ Plecs {
     }
     Connection {
       Type          HeatPipe
-      SrcComponent  "R_cd"
+      SrcComponent  "C_d"
       SrcTerminal   1
-      Points        [370, 115]
-      Branch {
-        Points        [235, 115; 235, 245; 220, 245]
-        DstComponent  "tpi"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "C_c"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          HeatPipe
-      SrcComponent  "R_cd"
-      SrcTerminal   2
       Points        [470, 115]
       Branch {
-        DstComponent  "R_da"
-        DstTerminal   1
+        DstComponent  "R_cd"
+        DstTerminal   2
       }
       Branch {
-        DstComponent  "C_d"
+        DstComponent  "R_da"
         DstTerminal   1
       }
     }
@@ -638,6 +583,28 @@ Plecs {
       Branch {
         DstComponent  "Ground"
         DstTerminal   1
+      }
+    }
+    Connection {
+      Type          HeatPipe
+      SrcComponent  "R_cd"
+      SrcTerminal   1
+      Points        [370, 115]
+      DstComponent  "C_c"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L1"
+      SrcTerminal   1
+      Points        [245, 285]
+      Branch {
+        DstComponent  "FETD"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "D1"
+        DstTerminal   2
       }
     }
     Annotation {
