@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3137, 988]
+    Location      [1920, 216; 3053, 988]
     ZoomFactor    1.71498
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -119,7 +119,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "file:\nC3D06060F"
+        Value         "file:C3D06060F"
         Show          off
       }
       Parameter {
