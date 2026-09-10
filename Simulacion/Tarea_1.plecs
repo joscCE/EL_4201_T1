@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3053, 988]
+    Location      [0, 0; 1494, 956]
     ZoomFactor    1.71498
     SliderPosition [0, 0]
     ShowBrowser   off
