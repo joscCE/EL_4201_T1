@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 2872, 1172]
+    Location      [0, 0; 1464, 956]
     ZoomFactor    1.71498
-    SliderPosition [0, 0]
+    SliderPosition [99, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -379,7 +379,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Rth"
-        Value         "1.5"
+        Value         "0.0801"
         Show          off
       }
     }
@@ -407,7 +407,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "0.0618"
+        Value         "1.18"
         Show          off
       }
       Parameter {
@@ -426,7 +426,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "125.23"
+        Value         "27.23"
         Show          off
       }
       Parameter {
