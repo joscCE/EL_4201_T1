@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 0; 1494, 956]
+    Location      [1920, 216; 3384, 1172]
     ZoomFactor    1.71498
-    SliderPosition [0, 0]
+    SliderPosition [99, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -257,11 +257,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 0; 1920, 988]
+      Location      [1920, 216; 3446, 1010]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAB4AAABjPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFkA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAAYwAAABjAP///wAAAAMAAAJG////+vw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAB4AAAAO9AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABfYAAAL7AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -379,7 +379,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Rth"
-        Value         "1.5"
+        Value         "0.0801"
         Show          off
       }
     }
@@ -407,7 +407,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "0.0618"
+        Value         "1.18"
         Show          off
       }
       Parameter {
@@ -426,7 +426,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "Cth"
-        Value         "125.23"
+        Value         "27.23"
         Show          off
       }
       Parameter {
