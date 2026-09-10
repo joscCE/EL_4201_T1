@@ -1,9 +1,7 @@
 import numpy as np
 
-# ==========================================
-# 1. PARÁMETROS DE ENTRADA (Tarea y Datasheet)
-# ==========================================
-# Parámetros del circuito / gate driver
+#PARÁMETROS DE ENTRADA 
+
 V_GS = 12.0          # Voltaje de compuerta en encendido [V]
 V_plateau = 5.8      # Voltaje de plateau [V]
 R_G_ext = 35.0       # Resistencia externa de compuerta [Ohm]
@@ -22,7 +20,7 @@ C_GD2 = 2768e-12      # C_rss a V_DS ~ 0V [F]
 #DEFINICIÓN DE VECTORES PARA LA TABLA
 
 v_ds_vec = np.array([150.0, 200.0, 250.0])   # Voltajes de bus DC [V]
-i_d_vec = np.array([5.0, 10.0, 20.0, 30.0, 40.0, 50.0])  # Corrientes I_D [A]
+i_d_vec = np.array([5.0, 10.0, 15.0, 20.0, 25.0])  # Corrientes I_D [A]
 
 #CÁLCULO DE PÉRDIDAS DE CONMUTACIÓN
 
