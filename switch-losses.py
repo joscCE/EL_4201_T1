@@ -1,68 +1,68 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
-# --- CONSTANTES DEL CIRCUITO Y DRIVE ---
-Rg = 35.0          # Resistencia de compuerta [Ohm]
-Vplateau = 5.8     # Voltaje de plateau [V]
-Vgs = 12.0         # Voltaje Gate-Source [V]
-f_sw = 6e3         # Frecuencia de conmutación [Hz]
+# ==========================================
+# 1. PARÁMETROS DE ENTRADA (Tarea y Datasheet)
+# ==========================================
+# Parámetros del circuito / gate driver
+V_GS = 12.0          # Voltaje de compuerta en encendido [V]
+V_plateau = 5.8      # Voltaje de plateau [V]
+R_G_ext = 35.0       # Resistencia externa de compuerta [Ohm]
+R_G_int = 1.1        # Resistencia interna de compuerta del IRFP4868PbF [Ohm]
+R_G = R_G_ext + R_G_int
 
-# Tiempos implícitos y carga de recuperación (ajustar si tienes datos de datasheet)
-tri = 50e-9        # Tiempo de subida de corriente [s]
-tfi = 45e-9        # Tiempo de caída de corriente [s]
-Qrr = 2520e-9       # Carga de recuperación inversa [C]
-Rds_on_25 = 32e-3   # RDS(on) a 25°C [Ohm]
-Rds_on_175 = 0.31  # RDS(on) a 175°C [Ohm]
+# Parámetros del semiconductor (IRFP4868PbF)
+t_ri = 50e-9         # Tiempo de subida 
+t_fi = 45e-9         # Tiempo de caída de corriente 
+Q_rr = 2520e-9       # Carga de recuperación inversa del diodo 
 
-# --- DATOS DE CAPACITANCIA C_GD vs VDS ---
-VDS_cap = np.array([1.0252, 1.4803, 2.9049, 3.4565, 4.5369, 6.9809])
-C_cap   = np.array([2.7685e-09, 2.135e-09, 1.267e-09, 7.963e-10, 5.198e-10, 3.772e-10])
+# Capacitancias de Miller C_rss obtenidas de la Fig. 5 
+C_GD1 = 106e-12       # C_rss a V_DS ~ V_bus [F] 
+C_GD2 = 2768e-12      # C_rss a V_DS ~ 0V [F] 
 
-def get_cgd(vds_val):
-    """Obtiene Cgd interpolando/extrapolando según el vector VDS_cap."""
-    return np.interp(vds_val, VDS_cap, C_cap)
+#DEFINICIÓN DE VECTORES PARA LA TABLA
 
-# --- DATOS DE PUNTOS DE OPERACIÓN ---
-points = {
-    25: {
-        'VDS': [0.10556, 0.20394, 0.85532, 3.1911, 11.077, 32.689],
-        'ID':  [1.9205, 3.1119, 4.6218, 6.0647, 6.4909, 8.1403],
-        'Rds_on': Rds_on_25
-    },
-    175: {
-        'VDS': [0.10377, 0.50453, 1.2858, 10.267, 18.421, 49.335],
-        'ID':  [1.1659, 6.014, 15.815, 104.47, 121.42, 131.94],
-        'Rds_on': Rds_on_175
-    }
-}
+v_ds_vec = np.array([150.0, 200.0, 250.0])   # Voltajes de bus DC [V]
+i_d_vec = np.array([5.0, 10.0, 20.0, 30.0, 40.0, 50.0])  # Corrientes I_D [A]
 
-# --- CÁLCULO DE ENERGÍAS ---
-for temp, data in points.items():
-    print(f"\n==================== TEMPERATURA: {temp}°C ====================")
-    rds = data['Rds_on']
-    
-    for vds, id_val in zip(data['VDS'], data['ID']):
-        v_on = rds * id_val
+#CÁLCULO DE PÉRDIDAS DE CONMUTACIÓN
+
+I_Gon = (V_GS - V_plateau) / R_G
+I_Goff = V_plateau / R_G
+
+# Matrices de salida para Eon y Eoff (en Joules)
+E_on_matrix = np.zeros((len(v_ds_vec), len(i_d_vec)))
+E_off_matrix = np.zeros((len(v_ds_vec), len(i_d_vec)))
+
+for i, V_DD in enumerate(v_ds_vec):
+    # Tiempos de caída y subida de voltaje (Efecto Miller)
+    t_fu1 = (V_DD-1) * (C_GD1 / I_Gon)
+    t_fu2 = (V_DD-1) * (C_GD2 / I_Gon)
+    t_fu = (t_fu1 + t_fu2) / 2.0
+
+    t_ru1 = (V_DD-1) * (C_GD1 / I_Goff)
+    t_ru2 = (V_DD-1) * (C_GD2 / I_Goff)
+    t_ru = (t_ru1 + t_ru2) / 2.0
+
+    for j, I_D in enumerate(i_d_vec):
+        # Eon: Transición de conmutación + Recuperación inversa
+        E_on_matrix[i, j] = V_DD * I_D * ((t_ri + t_fu) / 2.0) + (Q_rr * V_DD)
         
-        # Evaluaciones de Cgd en VDS_max y VDS_on
-        cgd1 = get_cgd(vds)
-        cgd2 = get_cgd(v_on)
-        
-        # 1. Tiempos de caída de voltaje en encendido (tfu)
-        tfu1 = (vds - v_on) * Rg * (cgd1 / (Vgs - Vplateau))
-        tfu2 = (vds - v_on) * Rg * (cgd2 / (Vgs - Vplateau))
-        tfu = max(0.0, (tfu1 + tfu2) / 2.0)
-        
-        # 2. Tiempos de subida de voltaje en apagado (tru)
-        tru1 = (vds - v_on) * Rg * (cgd1 / Vplateau)
-        tru2 = (vds - v_on) * Rg * (cgd2 / Vplateau)
-        tru = max(0.0, (tru1 + tru2) / 2.0)
-        
-        # 3. Energías [Julios]
-        Eon = (vds * id_val * ((tri + tfu) / 2.0)) + (Qrr * vds)
-        Eoff = vds * id_val * ((tru + tfi) / 2.0)
-        
-        # Salida formateada en microJulios (uJ) y Julios (J)
-        print(f"Vds = {vds:7.3f} V | Id = {id_val:7.3f} A  ==>  "
-              f"Eon = {Eon*1e6:9.2f} uJ ({Eon:.4e} J) | "
-              f"Eoff = {Eoff*1e6:9.2f} uJ ({Eoff:.4e} J)")
+        # Eoff: Transición de conmutación
+        E_off_matrix[i, j] = V_DD * I_D * ((t_ru + t_fi) / 2.0)
+
+#IMPRESIÓN DE RESULTADOS PARA PLECS
+print("=== VECTORES DE CONFIGURACIÓN DE PLECS ===")
+print(f"Vector V_DS [V]: {list(v_ds_vec)}")
+print(f"Vector I_D [A] : {list(i_d_vec)}\n")
+
+print("=== MATRIZ E_on [uJ] ===")
+print(np.array2string(E_on_matrix * 1e6, precision=2, suppress_small=True))
+
+print("\n=== MATRIZ E_off [uJ] ===")
+print(np.array2string(E_off_matrix * 1e6, precision=2, suppress_small=True))
+
+print("\n=== FORMATO LISTA DE MATLAB / PLECS (Eon en Joules) ===")
+print(repr(E_on_matrix.tolist()))
+
+print("\n=== FORMATO LISTA DE MATLAB / PLECS (Eoff en Joules) ===")
+print(repr(E_off_matrix.tolist()))
