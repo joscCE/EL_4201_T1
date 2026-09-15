@@ -71,16 +71,16 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [1920, 216; 3069, 988]
-    ZoomFactor    1
-    SliderPosition [0, 0]
+    Location      [387, 70; 1923, 820]
+    ZoomFactor    1.33333
+    SliderPosition [0, 107]
     ShowBrowser   off
     BrowserWidth  100
     Component {
       Type          ConstantHeatFlow
       Name          "Qconst"
       Show          on
-      Position      [145, 350]
+      Position      [145, 355]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -94,7 +94,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth"
       Show          on
-      Position      [305, 295]
+      Position      [305, 300]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -108,7 +108,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth1"
       Show          on
-      Position      [395, 295]
+      Position      [395, 300]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -122,7 +122,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth2"
       Show          on
-      Position      [490, 295]
+      Position      [490, 300]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -136,7 +136,7 @@ Plecs {
       Type          ConstantHeatFlow
       Name          "Qconst1"
       Show          on
-      Position      [145, 580]
+      Position      [135, 600]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -150,7 +150,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth"
       Show          on
-      Position      [255, 340]
+      Position      [255, 345]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -169,7 +169,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth1"
       Show          on
-      Position      [355, 340]
+      Position      [355, 345]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -188,7 +188,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth2"
       Show          on
-      Position      [450, 340]
+      Position      [450, 345]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -207,7 +207,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth3"
       Show          on
-      Position      [305, 590]
+      Position      [295, 610]
       Direction     left
       Flipped       off
       LabelPosition north
@@ -226,7 +226,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth4"
       Show          on
-      Position      [395, 590]
+      Position      [385, 610]
       Direction     left
       Flipped       off
       LabelPosition north
@@ -245,7 +245,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth5"
       Show          on
-      Position      [490, 590]
+      Position      [480, 610]
       Direction     left
       Flipped       off
       LabelPosition north
@@ -264,7 +264,7 @@ Plecs {
       Type          ThermalGround
       Name          "Ground"
       Show          on
-      Position      [355, 400]
+      Position      [355, 405]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -273,7 +273,7 @@ Plecs {
       Type          ThermalGround
       Name          "Ground1"
       Show          on
-      Position      [145, 615]
+      Position      [135, 635]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -287,22 +287,23 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 0; 1920, 988]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAeAAAAAdPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAANDAAAA"
+      Location      [0, 0; 1536, 772]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAACa/wCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAA1AAACawAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAA1AA"
+"ACiAAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAYAAAAAdPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABEAP///wAABgAAAAJrAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":199,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
+"AA/eYuJvXEx2AAAAAEBP9PQY1pCa7U/09EErfivZgAAAAAAAAAAAAAAAAAAAAAAAA=="
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":221,\"Labels\":["
+"\"Delta\",\"Max\"],\"VisualIdxs\":[3,6]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -340,7 +341,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth6"
       Show          on
-      Position      [575, 295]
+      Position      [575, 300]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -354,7 +355,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth6"
       Show          on
-      Position      [530, 340]
+      Position      [530, 345]
       Direction     down
       Flipped       on
       LabelPosition west
@@ -373,7 +374,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth7"
       Show          on
-      Position      [305, 530]
+      Position      [295, 550]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -387,7 +388,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth8"
       Show          on
-      Position      [395, 530]
+      Position      [385, 550]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -401,7 +402,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth9"
       Show          on
-      Position      [490, 530]
+      Position      [480, 550]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -415,7 +416,7 @@ Plecs {
       Type          ThermalResistor
       Name          "Rth10"
       Show          on
-      Position      [590, 530]
+      Position      [580, 550]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -429,7 +430,7 @@ Plecs {
       Type          ThermalCapacitor
       Name          "Cth7"
       Show          on
-      Position      [590, 590]
+      Position      [580, 610]
       Direction     left
       Flipped       off
       LabelPosition north
@@ -463,7 +464,7 @@ Plecs {
       Type          ThermalGround
       Name          "Ground2"
       Show          on
-      Position      [145, 380]
+      Position      [145, 385]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -472,7 +473,7 @@ Plecs {
       Type          ThermalGround
       Name          "Ground3"
       Show          on
-      Position      [675, 380]
+      Position      [675, 385]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -481,7 +482,7 @@ Plecs {
       Type          ThermalGround
       Name          "Ground4"
       Show          on
-      Position      [720, 590]
+      Position      [710, 610]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -490,7 +491,7 @@ Plecs {
       Type          HeatFlowMeter
       Name          "Wm"
       Show          on
-      Position      [630, 295]
+      Position      [630, 300]
       Direction     left
       Flipped       off
       LabelPosition south
@@ -499,19 +500,46 @@ Plecs {
       Type          HeatFlowMeter
       Name          "Wm1"
       Show          on
-      Position      [675, 530]
+      Position      [665, 550]
+      Direction     left
+      Flipped       off
+      LabelPosition south
+    }
+    Component {
+      Type          Thermometer
+      Name          "Thm"
+      Show          on
+      Position      [370, 220]
+      Direction     left
+      Flipped       off
+      LabelPosition south
+    }
+    Component {
+      Type          Thermometer
+      Name          "Thm1"
+      Show          on
+      Position      [405, 475]
       Direction     left
       Flipped       off
       LabelPosition south
     }
     Connection {
       Type          HeatPipe
-      SrcComponent  "Qconst"
-      SrcTerminal   2
-      Points        [145, 295; 255, 295]
+      SrcComponent  "Rth"
+      SrcTerminal   1
+      Points        [255, 300]
       Branch {
-        DstComponent  "Rth"
-        DstTerminal   1
+        Points        [175, 300]
+        Branch {
+          Points        [145, 300]
+          DstComponent  "Qconst"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [175, 220]
+          DstComponent  "Thm"
+          DstTerminal   1
+        }
       }
       Branch {
         DstComponent  "Cth"
@@ -522,7 +550,7 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth"
       SrcTerminal   2
-      Points        [355, 295]
+      Points        [355, 300]
       Branch {
         DstComponent  "Rth1"
         DstTerminal   1
@@ -536,7 +564,7 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth1"
       SrcTerminal   2
-      Points        [450, 295]
+      Points        [450, 300]
       Branch {
         DstComponent  "Rth2"
         DstTerminal   1
@@ -550,7 +578,7 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Cth"
       SrcTerminal   2
-      Points        [255, 375; 355, 375]
+      Points        [255, 380; 355, 380]
       Branch {
         DstComponent  "Ground"
         DstTerminal   1
@@ -560,13 +588,13 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        Points        [450, 375]
+        Points        [450, 380]
         Branch {
           DstComponent  "Cth2"
           DstTerminal   2
         }
         Branch {
-          Points        [530, 375]
+          Points        [530, 380]
           DstComponent  "Cth6"
           DstTerminal   2
         }
@@ -574,15 +602,24 @@ Plecs {
     }
     Connection {
       Type          HeatPipe
-      SrcComponent  "Qconst1"
-      SrcTerminal   2
-      Points        [145, 530; 265, 530]
+      SrcComponent  "Rth7"
+      SrcTerminal   1
+      Points        [255, 550]
       Branch {
-        DstComponent  "Rth7"
-        DstTerminal   1
+        Points        [175, 550]
+        Branch {
+          Points        [135, 550]
+          DstComponent  "Qconst1"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [175, 475]
+          DstComponent  "Thm1"
+          DstTerminal   1
+        }
       }
       Branch {
-        Points        [265, 590]
+        Points        [255, 610]
         DstComponent  "Cth3"
         DstTerminal   1
       }
@@ -591,21 +628,21 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth7"
       SrcTerminal   2
-      Points        [345, 530]
+      Points        [335, 550]
       Branch {
-        Points        [365, 530]
+        Points        [355, 550]
         Branch {
           DstComponent  "Rth8"
           DstTerminal   1
         }
         Branch {
-          Points        [365, 590]
+          Points        [355, 610]
           DstComponent  "Cth4"
           DstTerminal   1
         }
       }
       Branch {
-        Points        [345, 590]
+        Points        [335, 610]
         DstComponent  "Cth3"
         DstTerminal   2
       }
@@ -614,21 +651,21 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth8"
       SrcTerminal   2
-      Points        [435, 530]
+      Points        [425, 550]
       Branch {
-        Points        [455, 530]
+        Points        [445, 550]
         Branch {
           DstComponent  "Rth9"
           DstTerminal   1
         }
         Branch {
-          Points        [455, 590]
+          Points        [445, 610]
           DstComponent  "Cth5"
           DstTerminal   1
         }
       }
       Branch {
-        Points        [435, 590]
+        Points        [425, 610]
         DstComponent  "Cth4"
         DstTerminal   2
       }
@@ -637,21 +674,21 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth9"
       SrcTerminal   2
-      Points        [530, 530]
+      Points        [520, 550]
       Branch {
-        Points        [550, 530]
+        Points        [540, 550]
         Branch {
           DstComponent  "Rth10"
           DstTerminal   1
         }
         Branch {
-          Points        [550, 590]
+          Points        [540, 610]
           DstComponent  "Cth7"
           DstTerminal   1
         }
       }
       Branch {
-        Points        [530, 590]
+        Points        [520, 610]
         DstComponent  "Cth5"
         DstTerminal   2
       }
@@ -667,7 +704,7 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Cth6"
       SrcTerminal   1
-      Points        [530, 295]
+      Points        [530, 300]
       Branch {
         DstComponent  "Rth6"
         DstTerminal   1
@@ -681,13 +718,13 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Rth10"
       SrcTerminal   2
-      Points        [625, 530]
+      Points        [615, 550]
       Branch {
         DstComponent  "Wm1"
         DstTerminal   1
       }
       Branch {
-        Points        [625, 590]
+        Points        [615, 610]
         DstComponent  "Cth7"
         DstTerminal   2
       }
@@ -717,31 +754,47 @@ Plecs {
       Type          HeatPipe
       SrcComponent  "Wm"
       SrcTerminal   2
-      Points        [675, 295]
-      DstComponent  "Ground3"
-      DstTerminal   1
+      Points        [670, 300]
+      Branch {
+        Points        [675, 300]
+        DstComponent  "Ground3"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [670, 220]
+        DstComponent  "Thm"
+        DstTerminal   2
+      }
     }
     Connection {
       Type          HeatPipe
       SrcComponent  "Wm1"
       SrcTerminal   2
-      Points        [720, 530]
-      DstComponent  "Ground4"
-      DstTerminal   1
+      Points        [695, 550]
+      Branch {
+        Points        [710, 550]
+        DstComponent  "Ground4"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [695, 475]
+        DstComponent  "Thm1"
+        DstTerminal   2
+      }
     }
     Connection {
       Type          Signal
-      SrcComponent  "Wm1"
+      SrcComponent  "Thm1"
       SrcTerminal   3
-      Points        [675, 470]
+      Points        [405, 450; 800, 450]
       DstComponent  "Mux"
       DstTerminal   3
     }
     Connection {
       Type          Signal
-      SrcComponent  "Wm"
+      SrcComponent  "Thm"
       SrcTerminal   3
-      Points        [630, 250; 805, 250; 805, 390]
+      Points        [370, 165; 755, 165; 755, 390]
       DstComponent  "Mux"
       DstTerminal   2
     }
